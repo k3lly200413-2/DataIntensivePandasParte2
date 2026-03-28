@@ -8,7 +8,11 @@ def main():
     sales = pd.read_csv("https://github.com/datascienceunibo/dialab2024/raw/main/Preprocessing_con_pandas/rossmann-sales.csv")
     # print(sales)
     stores = pd.read_csv("https://github.com/datascienceunibo/dialab2024/raw/main/Preprocessing_con_pandas/rossmann-stores.csv")
-    print(stores)
+    # print(stores)
+    
+    stores = stores.set_index("Store")
+    print(stores.head(3))
+    
     
 if __name__ == "__main__":
     main()
