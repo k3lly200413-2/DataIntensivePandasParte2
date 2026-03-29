@@ -95,6 +95,12 @@ def main():
     
     pd.cut(sales_open["Sales"], [0, 10000, 20000, np.inf])
     
+    
+    per_customer_avg = sales_open["Sales"] / sales_open["Customers"]
+    
+    print(per_customer_avg.describe())
+    
+    print(pd.cut(per_customer_avg, 5).value_counts())
 
 if __name__ == "__main__":
     main()
