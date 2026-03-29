@@ -54,14 +54,35 @@ def main():
     
     sales_open = sales_open.drop(columns=["Open"])
     
-    print(stores["StoreType"].cat.categories)
+    # print(stores["StoreType"].cat.categories)
     
-    print(sales_open["Date"])
-    print(sales_open["Date"].dt.day)
+    # print(sales_open["Date"])
+    # print(sales_open["Date"].dt.day)
 
-    print((sales["Date"].dt.month == 7).all() and (sales["Date"].dt.year == 2015).all())
+    # print((sales["Date"].dt.month == 7).all() and (sales["Date"].dt.year == 2015).all())
 
-    print(sales["DayOfWeek"].equals(sales["Date"].dt.weekday + 1))
+    # print(sales["DayOfWeek"].equals(sales["Date"].dt.weekday + 1))
+    
+    # Unique values of column
+    
+    sales_open["DayOfWeek"].unique()
+
+    # number of unique values
+    
+    print(sales_open["DayOfWeek"].nunique())
+    
+    # Value count number of times each value appears
+    
+    print(sales_open["DayOfWeek"].value_counts())
+    
+    # relative quantity of value
+    
+    print(sales_open["DayOfWeek"].value_counts(normalize=True))
+    
+    # include NaN
+    
+    print(stores["CompetitionOpenSinceMonth"].value_counts(dropna=False))
+    
 
 if __name__ == "__main__":
     main()
