@@ -31,7 +31,29 @@ def main():
     
     # print(stores.loc[stores["CompetitionDistance"].isna()])
     
-    print(stores["CompetitionDistance"].mean())
+    # print(stores["CompetitionDistance"].mean())
     
+    # sales.info(memory_usage="deep")
+    
+    sales["Open"] = sales["Open"].astype(bool)
+    sales["Promo"] = sales["Promo"].astype(bool)
+    sales["SchoolHoliday"] = sales["SchoolHoliday"].astype(bool)
+    stores["Promo2"] = stores["Promo2"].astype(bool)
+    
+    sales["StateHoliday"] = sales["StateHoliday"].astype("category")
+    stores["StoreType"] = stores["StoreType"].astype("category")
+    stores["Assortment"] = stores["Assortment"].astype("category")
+
+    sales["Date"] = pd.to_datetime(sales["Date"])
+    
+    print(sales.info(memory_usage="deep"))
+    
+    # Returns only True rows and then puts them in sales_open
+    
+    sales_open = sales.loc[sales["Open"]]
+    
+    sales_open = sales_open.drop(columns=["Open"])
+    
+
 if __name__ == "__main__":
     main()
