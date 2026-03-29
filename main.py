@@ -54,6 +54,10 @@ def main():
     
     sales_open = sales_open.drop(columns=["Open"])
     
+    print(stores["StoreType"].cat.categories)
+    
+    print(sales_open["Date"])
+    print(sales_open["Date"].dt.day)
 
 if __name__ == "__main__":
     main()
