@@ -59,5 +59,9 @@ def main():
     print(sales_open["Date"])
     print(sales_open["Date"].dt.day)
 
+    print((sales["Date"].dt.month == 7).all() and (sales["Date"].dt.year == 2015).all())
+
+    print(sales["DayOfWeek"].equals(sales["Date"].dt.weekday + 1))
+
 if __name__ == "__main__":
     main()
