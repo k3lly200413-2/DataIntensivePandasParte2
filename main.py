@@ -11,7 +11,7 @@ def main():
     # print(stores)
     
     stores = stores.set_index("Store")
-    print(stores.head(3))
+    # print(stores.head(3))
     
     # print((sales["Open"] == 0).sum())
     # print(sales.loc[sales["Open"] == 1, "Customers"].mean())
@@ -19,8 +19,19 @@ def main():
     # print(sales.sort_values("Sales", ascending=False).head(5))
     
     # Is there at least one value in the series that is NaN
-    print(stores.isna().any())
+    # print(stores.isna().any())
     
+    # Completely eliminates all rows which contain a Nan 
+    # print(stores.dropna())
+    # Can use filna(number) to fill with a specific number, also ffil, bfill and interplate
+    
+    # print(stores.isna().sum())
+    
+    stores = stores.fillna(1.000)
+    
+    # print(stores.loc[stores["CompetitionDistance"].isna()])
+    
+    print(stores["CompetitionDistance"].mean())
     
 if __name__ == "__main__":
     main()
