@@ -13,6 +13,14 @@ def main():
     stores = stores.set_index("Store")
     print(stores.head(3))
     
+    # print((sales["Open"] == 0).sum())
+    # print(sales.loc[sales["Open"] == 1, "Customers"].mean())
+    # print(sales.loc[sales["Store"] == 123, "Sales"].sum())
+    # print(sales.sort_values("Sales", ascending=False).head(5))
+    
+    # Is there at least one value in the series that is NaN
+    print(stores.isna().any())
+    
     
 if __name__ == "__main__":
     main()
