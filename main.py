@@ -69,19 +69,31 @@ def main():
 
     # number of unique values
     
-    print(sales_open["DayOfWeek"].nunique())
+    # print(sales_open["DayOfWeek"].nunique())
     
     # Value count number of times each value appears
     
-    print(sales_open["DayOfWeek"].value_counts())
+    # print(sales_open["DayOfWeek"].value_counts())
     
     # relative quantity of value
     
-    print(sales_open["DayOfWeek"].value_counts(normalize=True))
+    # print(sales_open["DayOfWeek"].value_counts(normalize=True))
     
     # include NaN
     
-    print(stores["CompetitionOpenSinceMonth"].value_counts(dropna=False))
+    # print(stores["CompetitionOpenSinceMonth"].value_counts(dropna=False))
+    
+    # Divides the data into n intervals, then puts the data in these intervals 
+    # the minimum is taken and then lowered by 0.1% of the delta of the numbers 
+    # to make sure the minimum is included
+    # minimum here is 708 so we start from 676.161
+    
+    print(sales_open["Sales"].min())
+    print(pd.cut(sales_open["Sales"], 4))
+    
+    # you set your boundries
+    
+    pd.cut(sales_open["Sales"], [0, 10000, 20000, np.inf])
     
 
 if __name__ == "__main__":
