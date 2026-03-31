@@ -137,7 +137,15 @@ def main():
     #     .plot.bar()
     # )
     
-    plt.hist(sales_open["Sales"], 20)
+    # plt.hist(sales_open["Sales"], 20)
+    
+    # sales_open["Sales"].plot.box(showmeans=True)
+    
+    # sales_open["Sales"].describe()
+    
+    # sales_open.plot.box(showmeans=True)
+    
+    sales_open.plot.box(column="Sales", by="DayOfWeek", showmeans=True)
     
     plt.show()
 
