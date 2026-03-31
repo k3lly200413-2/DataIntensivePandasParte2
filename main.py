@@ -98,9 +98,39 @@ def main():
     
     per_customer_avg = sales_open["Sales"] / sales_open["Customers"]
     
-    print(per_customer_avg.describe())
+    # print(per_customer_avg.describe())
     
-    print(pd.cut(per_customer_avg, 5).value_counts())
+    # print(pd.cut(per_customer_avg, 5).value_counts())
+    
+    sales_joined = pd.merge(
+        sales,
+        stores,
+        left_on="Store",
+        right_index=True,
+    )
+    
+    # Removing all stores that are not open by using loc with Open which only gives 
+    # The true rows
+    
+    sales_open = sales_joined.loc[sales_joined["Open"]].drop(columns="Open")
+    
+    # plt.pie([1, 2, 3], labels=["one", "two", "three"])
+    
+    # plt.pie(       [ 0.8,   1.0,       1.2           ],
+    #         labels=[ "red", "yellow",  "blue"        ],
+    #         colors=[ "red", "#ffff00", (0.0,0.0,1.0) ])
+    
+    stores_by_type = stores["StoreType"].value_counts()
+    
+    # plt.pie(stores_by_type,
+    #         labels=stores_by_type.index)
+    
+    # pd.cut(sales_open["Sales"], 4, right=False).value_counts().plot.pie()
+    
+    # stores["StoreType"].value_counts().plot.pie(autopct="%.2f%%")
+    stores["StoreType"].value_counts().plot.bar();
+    
+    plt.show()
 
 if __name__ == "__main__":
     main()
