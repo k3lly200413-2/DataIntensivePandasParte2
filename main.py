@@ -128,7 +128,16 @@ def main():
     # pd.cut(sales_open["Sales"], 4, right=False).value_counts().plot.pie()
     
     # stores["StoreType"].value_counts().plot.pie(autopct="%.2f%%")
-    stores["StoreType"].value_counts().plot.bar();
+    # stores["StoreType"].value_counts().plot.bar() 
+    
+    # (
+    #     pd.cut(sales_open["Sales"], 20)
+    #     .value_counts()
+    #     .sort_index()
+    #     .plot.bar()
+    # )
+    
+    plt.hist(sales_open["Sales"], 20)
     
     plt.show()
 
