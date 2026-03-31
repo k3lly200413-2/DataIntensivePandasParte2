@@ -154,7 +154,21 @@ def main():
     
     # s = Size c = colour
     
-    sales_open.plot.scatter("Customers", "Sales", s=7, c="red")
+    # sales_open.plot.scatter("Customers", "Sales", s=7, c="red")
+    
+    # pd.cut(sales_open["Customers"], 3).value_counts().plot.pie()
+    
+    # pd.qcut(sales_open["Customers"], 3).value_counts().plot.pie()
+    
+    # stores.loc[stores["StoreType"] == "a", "Assortment"].value_counts().plot.pie()
+    
+    # (sales_open["Sales"] / sales_open["Customers"]).plot.hist()
+    
+    # (sales_open["Sales"] / sales_open["Customers"]).plot.box(showmeans=True)
+    
+    # sales_open.plot.scatter("CompetitionDistance", "Sales")
+    
+    sales_open.boxplot(column="Customers", by="StoreType", showmeans=True)
     
     plt.show()
 
