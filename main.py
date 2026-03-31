@@ -145,7 +145,16 @@ def main():
     
     # sales_open.plot.box(showmeans=True)
     
-    sales_open.plot.box(column="Sales", by="DayOfWeek", showmeans=True)
+    # sales_open.plot.box(column="Sales", by="DayOfWeek", showmeans=True)
+    
+    # plt.scatter(
+    #     sales_open["Customers"],  # X
+    #     sales_open["Sales"],      # Y
+    # )
+    
+    # s = Size c = colour
+    
+    sales_open.plot.scatter("Customers", "Sales", s=7, c="red")
     
     plt.show()
 
